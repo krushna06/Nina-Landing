@@ -1,6 +1,5 @@
-// Template Name: Pulchritude Nail art salon and booking HTML Template
 // Copyright: © 2023-24
-// Author : Webstrot
+// Developer: n0step_
 (function ($) {
     "use strict";
 
