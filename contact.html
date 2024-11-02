@@ -64,17 +64,37 @@
                 <div class="col-lg-6 col-md-12 text-center text-lg-left">
                     <div class="top-location float-left">
                         <ul class="d-flex justify-content-center justify-content-lg-start">
-                            <li><a href="javascript:;">
+                            <li>
+                                <a href="javascript:;">
                                     <i class="fas fa-map-marker-alt"></i>
                                     Cluj Napoca, Romania
-                                </a></li>
-                            <li><a href="javascript:;">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
                                     <i class="far fa-clock"></i>
                                     Mon-Sat: 9am to 6pm
-                                </a></li>
+                                </a>
+                            </li>
+                            <!-- Google Translate Widget -->
+                            <li style="margin-left: 20px;">
+                                <div id="google_translate_element"></div>
+                            </li>
                         </ul>
                     </div>
                 </div>
+                
+                <script type="text/javascript">
+                    function googleTranslateElementInit() {
+                        new google.translate.TranslateElement({
+                            pageLanguage: 'en',
+                            includedLanguages: 'ro',
+                            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                        }, 'google_translate_element');
+                    }
+                </script>
+                <script type="text/javascript" src="js/translate.js"></script>
+                
                 <div class="col-lg-6 d-none d-lg-block">
                     <div class="social-icon float-left">
                         <ul class="float-left">
