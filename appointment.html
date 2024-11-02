@@ -191,45 +191,56 @@
                     <h6>Book An Appointment</h6>
                 </div>
                 <div class="sidebar-body form-head">
-                    <form class="row">
+                    <form class="row" id="appointmentForm">
                         <div class="col-lg-6 col-md-12">
                             <div class="contact-input">
-                                <input type="text" class="form-control" placeholder="Name" required="">
+                                <input type="text" class="form-control" id="appointmentName" placeholder="Name" required="">
                                 <i class="fas fa-user"></i>
                             </div>
                             <div class="contact-input">
-                                <input type="tel" class="form-control" placeholder="Phone">
+                                <input type="tel" class="form-control" id="appointmentPhone" placeholder="Phone">
                                 <i class="fas fa-phone"></i>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-12">
                             <div class="contact-input">
-                                <input type="email" class="form-control" id="contactemail" placeholder="Email" required="">
+                                <input type="email" class="form-control" id="appointmentEmail" placeholder="Email" required="">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="input-form">
                                 <div class="contact-input">
-                                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text">
+                                    <input class="form-control" id="appointmentDate" name="date" placeholder="MM/DD/YYYY" type="text">
                                     <span class="form-date"><i class="fas fa-calendar-minus"></i></span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="contact-input">
-                                <textarea placeholder="Your Text"></textarea>
+                                <textarea id="appointmentMessage" placeholder="Your Text"></textarea>
                             </div>
                         </div>
                         <div class="col-lg-12">
-                            <div class="contact-check">
-                                <input type="checkbox" class="form-check-input" id="check">
-                                <label class="form-check-label" for="check">I agree that my submitted data is being
-                                    collected and stored.</label>
+                            <div class="contact-input">
+                                <label for="serviceSelect">Service:</label>
+                                <select class="form-control" id="serviceSelect" required>
+                                    <option value="" disabled selected>Select a Service</option>
+                                    <option value="Gel Extensions">Gel Extensions</option>
+                                    <option value="Gel Maintenance">Gel Maintenance</option>
+                                    <option value="Babyboomer">Babyboomer</option>
+                                    <option value="French">French</option>
+                                    <option value="French Glass">French Glass</option>
+                                    <option value="Pedi Spa">Pedi Spa</option>
+                                    <option value="Pedi Spa + Semi Polish">Pedi Spa + Semi Polish</option>
+                                    <option value="Podology">Podology</option>
+                                    <option value="Semi with Apex">Semi with Apex</option>
+                                    <option value="U.N Protection">U.N Protection</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="tb_es_btn_div">
                                 <div class="response center"></div>
-                                <input type="hidden" name="form_type" value="contact">
+                                <input type="hidden" name="form_type" value="appointment">
                                 <div class="tb_es_btn_wrapper os_contact_input">
                                     <div class="contact-btn appointment-btn">
                                         <button type="submit" class="main-btn-red">
@@ -245,6 +256,26 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            const name = document.getElementById('appointmentName').value;
+            const phone = document.getElementById('appointmentPhone').value;
+            const email = document.getElementById('appointmentEmail').value;
+            const date = document.getElementById('appointmentDate').value;
+            const message = document.getElementById('appointmentMessage').value;
+            const service = document.getElementById('serviceSelect').value;
+    
+            const whatsappMessage = `Name: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AEmail: ${encodeURIComponent(email)}%0ADate: ${encodeURIComponent(date)}%0AService: ${encodeURIComponent(service)}%0AMessage: ${encodeURIComponent(message)}`;
+    
+            const whatsappURL = `https://api.whatsapp.com/send?phone=0040720809299&text=${whatsappMessage}`;
+
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+    
 
     <!-- blog-end -->
 
